@@ -1,7 +1,6 @@
 package com.nakul.firstSpringProject.controller;
 
 import com.nakul.firstSpringProject.entity.User;
-import com.nakul.firstSpringProject.repositories.UserRepository;
 import com.nakul.firstSpringProject.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @RestController
@@ -29,7 +26,7 @@ public class UserController {
         try{
             userInDB.setUsername(user.getUsername());
             userInDB.setPassword(user.getPassword());
-            userService.saveEntry(userInDB);
+            userService.saveNewUser(userInDB);
             return new ResponseEntity<>(userInDB, HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
