@@ -56,6 +56,5 @@ public class JournalEntryService {
             System.out.println(e.getMessage());
             throw new RuntimeException("An error occurred while deleting journal entry");
         }
-        return removed;
     }
 }
